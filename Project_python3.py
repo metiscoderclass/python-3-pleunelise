@@ -1,104 +1,31 @@
-FUNCTIONS
-    def kies_lijst():
-​       lijst_naam = input("Kies de woorden lijst die je wilt zien:")
-       return lijst_naam
+def main():
+  print("Welkom bij het overhorings progamma!")
+  print("Typ 'k' om een lijst te kiezen")
+  print("Typ 'n' om een nieuwe lijst te maken")
+  print("Typ 'l' om een lijst te lezen")
+  print("Typ 't' om iets aan een lijst toe tevoegen")
+  print("Typ 'q' om te stoppen")
+  print("Typ 'o' om te overhoren")
+  print("Typ 'd' om een lijst te verwijderen")
+  keuze = input("Wat zou je willen doen?")
 
-    def lees_woordenlijst():
-        bestandsnaam = input("Wat is de bestandsnaam?")
-        with open(bestandsnaam) as b:
-         bestandsdata = b.read()
-
-        print(bestandsdata)
-
-        Gebruikt: SCHEIDER
-        Parameter: naam van het bestand waar de woordenlijst in staat
-        Returnwaarde: een dictionary met woordparen
-
-    def STANDAARD_LIJST():
-        tekstbestand = input("Wat wil je als naam voor je nieuwe tekst bestand?")
-        with open(tekstbestand) as b:
-            bestandsdata = b.read().split('\n')
-
-        for item in bestandsdata:
-             if not item == '': # Sla lege regels over
-                # Hieronder zie je hoe je de inhoud van een lijst met twee elementen aan twee variabelen kunt toekennen
-                woord1, woord2 = item.split("=")
-
-    def main():
-        Laat een keuzemenu zien
-
-         STANDAARD_LIJST()
-         KIES_LIJST()
-         TOEVOEGEN()
-         OVERHOREN()
-         STOPPEN()
-
-        De gebruiker kan vervolgens steeds nieuwe keuzes blijven maken.
-
-        Gebruikt: STANDAARD_LIJST, KIES_LIJST, TOEVOEGEN, OVERHOREN, STOPPEN, EXTENSIE
-        Parameters: Geen
-        Returnwaarde: Geen
-​
-    nieuwe_lijst_naam()
-
-        Gebruikt: -
-        Parameters: -
-        Returnwaarde: de lijst_naam van de nieuw gekozen lijst
-​
-    overhoren(woordenlijst)
-        Blijf woorden overhoren totdat de gebruiker aangeeft te willen stoppen.
-​
-        Gebruikt: STOPPEN
-        Parameters: de woordenlijst die overhoord moet worden
-        Returnwaarde: -
-​
-​
-        Gebruikt: SCHERMBREEDTE
-        Parameters: -
-        Returnwaarde: -
-​
-    print_menu(lijst_naam)
-        Print het (keuze)menu inclusief de geselecteerde lijst
-​
-        Gebruikt: SCHERMHOOGTE, SCHERMBREEDTE
-        Parameters: De naam van de geselecteerde woordenlijst
-        Returnwaarde: -
-​
-    schrijf_woordenlijst(bestandsnaam, woordenlijst)
-        Schrijft de woordparen weg naar het bestand genaamd 'bestandsnaam'.
-        De oude inhoud van het bestand wordt overschreven!
-​
-        Gebruikt: SCHEIDER
-        Parameter: naam van het bestand waar de woordenlijst in geschreven wordt, woordenlijst die weggeschreven wordt
-        Returnwaarde: -
-​
-    verwijder_woord(woord, woordenlijst)
-        Vraagt of gebruiker zeker weet of er verwijderd moet worden.
-        Verwijdert het woord en de vertaling uit de lijst als dit zo is.
-​
-        Gebruikt: -
-        Parameters: het woord dat verwijderd moet worden, de woordenlijst waaruit verwijderd moet worden
-        Returnwaarde: -
-​
-    voeg_woorden_toe(woordenlijst, lijst_naam)
-        Vraag de gebruiker steeds om woordenparen en voeg ze toe aan de lijst.
-        Stop als de gebruiker aangeeft te willen stoppen.
-​
-        Gebruikt: SCHEIDER, STOPPEN
-        Parameters: de woordenlijst waarin toegevoegd moet worden, de lijst_naam van deze woordenlijst
-        Returnwaarde: -
-​
-DATA
-    DELETE = 'd'
-    EXTENSIE = '.wrd'
-    KIES_LIJST = 'k'
-    MAX_WOORDLENGTE = 20
-    NIEUWE_LIJST = 'n'
-    OPSLAAN = 'w'
-    OVERHOREN = 'o'
-    SCHEIDER = '='
-    SCHERMBREEDTE = 80
-    SCHERMHOOGTE = 40
-    STANDAARD_LIJST = 'NED-EN'
-    STOPPEN = 'q'
-    TOEVOEGEN = 't'
+  if (keuze == 'k'):
+    kies_lijst()
+  if (keuze == 'n'):
+    print("Veel plezier met het maken van je nieuwe lijst!")
+    nieuwe_lijst()
+  if (keuze == 'l'):
+    lees_lijst()
+  if (keuze == 't'):
+    toevoegen_lijst()
+  if (keuze == 'q'):
+    antw = print("Weet je zeker dat je wilt stoppen?")
+    if (antw == 'ja'):
+      print("Tot de volgende keer!")
+      #stop
+  if (keuze == 'o'):
+    print("Veel succes met oefenen!")
+    overhoren_lijst()
+  if (keuze == 'd'):
+    print("Weet je zeker dat je deze lijst wilt verwijderen?")
+    verwijderen_lijst()
