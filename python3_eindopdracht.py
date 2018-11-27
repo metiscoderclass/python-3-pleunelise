@@ -69,6 +69,7 @@ def wijzig_lijst():
     print(woorden[newkey])  #print de value die veranderd wilt worden
     newvalue = input("Nieuwe vertaling:") #veranderd oude value voor de nieuwe value
     woorden[newkey] = newvalue
+    del woorden[key]
     print("De nieuwe wijziging is aangebracht in je woorden lijst!")
 
 def overhoren_lijst():
@@ -90,10 +91,3 @@ def overhoren_lijst():
     print("Je bent klaar voor je toets!!")
 
 main()
-'''
-   - nieuwe woordenlijst maken
-   - veranderen van woordenlijst
-   - woorden toevoegen aan een woordenlijst
-   - woordenlijsten overhoren
-   - stoppen met het programma
-'''

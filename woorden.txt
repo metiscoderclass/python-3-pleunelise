@@ -1,1 +1,1 @@
-{'hallo': 'hello', 'auto': 'car', 'wiskunde': 'math', 'hoi': 'hey', 'geschiedenis': 'history', 'wat': 'what', 'dat': 'that', 'voeetbal': 'football', 'voetbal': 'soccer', 's': 'q'}
+{'hallo': 'hello', 'auto': 'car', 'wiskunde': 'math', 'geschiedenis': 'history', 'natuurkunde': 'fisics', 'scheikunde': 'science', 'duits': 'german', 'frankrijk': 'france', 'hoi': 'hey', 's': 's'}
