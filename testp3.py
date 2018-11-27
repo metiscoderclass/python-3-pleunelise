@@ -1,6 +1,7 @@
 bestandsnaam = input("Welk van deze bestanden wil je lezen?")
 with open(bestandsnaam) as f:
     for line in f:
+        woorden = 
         woord1, woord2 = line.strip(',').split(':')
         bestandsnaam[woord1] = woord2
     print(bestandsnaam)

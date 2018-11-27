@@ -1,6 +1,6 @@
 #overhoor progamma
 import random
-woorden = {} #INLEZEN ALS .TXT BESTAND!!!!!!
+woorden = {"hallo":"hello", "auto":"car", "wiskunde":"math"} #INLEZEN ALS .TXT BESTAND!!!!!!
 
 w = 50
 def print_schermbreedte():
@@ -13,11 +13,11 @@ def main():
     print("nieuwe lijst, toets n")
     print("wijzig lijst, toets w")
     print("overhoor lijst, toets o")
-    print("Om te stoppen, toets s")
+    print("Om te stoppen, toets q")
     print_schermbreedte()
-    keuze = input("Wat zou u willen doen?")
+    keuze = input("Wat zou u willen doen?") #vraagt keuze input
 
-    while keuze != 's':
+    while keuze != 'q': #zolang de keuze geen 's' is blijft de loopen
         if (keuze == 'b'):
             bekijk_lijst()
         if (keuze == 'n'):
@@ -31,17 +31,18 @@ def main():
 
 def bekijk_lijst():
     print_schermbreedte()
-    print("NL : EN")
-    for key in woorden:
+    print("NL : EN") #key == NL, value == EN
+    for key in woorden: #voor elke key in de dict woorden, voer deze loop uit
         print("{key} : {value}".format(key=key, value=woorden[key])) #print 'key : value'
 
 def nieuwe_lijst():
     print_schermbreedte()
+    print("'s' om te stoppenn")
     print("Laten we beginnen!")
 
-    while w == 50:
+    while w == 50: #loopt zolang w gelijk is aan 50
         key = input("ne:") #input nederlands woord
-        if key == 's':
+        if key == 's': #als input s
             print("Je lijst is klaar!")
             opslaan()
             main()
@@ -61,24 +62,18 @@ def opslaan():
 def wijzig_lijst():
     bekijk_lijst()
     print_schermbreedte()
-    ant = input("'Key' of 'value' veranderen:")
-    if ant == 'key':
-        print_schermbreedte()
-        key = input("Woord dat je wilt veranderen:") #input van de key die veranderd wilt worden
-        newkey = input("Nieuw woord:") #nieuwe key woord
-        woorden[newkey] = woorden.pop(key) #veranderd de oude key door de nieuwe key
-    elif ant == 'value':
-        print_schermbreedte()
-        value = input("Woord dat je wilt veranderen:") #input van de value die veranderd wilt worden
-        newvalue = input("Nieuw woord:") #veranderd oude value voor de nieuwe value
-        woorden[newvalue] = woorden.pop(value) #KeyError: value oude woord
-    else:
-        print_schermbreedte()
-        print("Geen geldige key/value.") #print... als er geen geldige input gegeven wordt != 'key' or 'value'
+    key = input("Woord (key) dat je wilt veranderen:") #input van de key die veranderd wilt worden
+    newkey = input("Nieuw woord:") #nieuwe key woord
+    woorden[newkey] = woorden[key] #veranderd de oude key door de nieuwe key
+    print_schermbreedte()
+    print(woorden[newkey])  #print de value die veranderd wilt worden
+    newvalue = input("Nieuwe vertaling:") #veranderd oude value voor de nieuwe value
+    woorden[newkey] = newvalue
+    print("De nieuwe wijziging is aangebracht in je woorden lijst!")
 
 def overhoren_lijst():
     punten = 0
-    while punten < woorden.keys()*2:
+    while punten < len(woorden.keys())*2:
         print_schermbreedte()
         nlwoord = random.choice(list(woorden)) #geeft een random key, in dit geval een nederlands woord
         print("Wat is de vertaling van dit woord?")
@@ -92,6 +87,7 @@ def overhoren_lijst():
             print("Dat is niet correct!") #als er een andere input is die niet gecontroleerd wordt, wordt het fout gerekend
             print("Het goede antwoord:",woorden[nlwoord]) #print het goede antwoord
             punten -= 1
+    print("Je bent klaar voor je toets!!")
 
 main()
 '''
