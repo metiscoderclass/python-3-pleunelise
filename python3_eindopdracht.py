@@ -1,6 +1,6 @@
 #overhoor progamma
 import random
-woorden = {"hallo":"hello", "auto":"car", "wiskunde":"math"} #INLEZEN ALS .TXT BESTAND!!!!!!
+woorden = {"hallo":"hello", "auto":"car", "wiskunde":"math"}
 
 w = 50
 def print_schermbreedte():
