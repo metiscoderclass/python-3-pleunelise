@@ -75,6 +75,15 @@ def wijzig_lijst(woorden):
     print("De nieuwe wijziging is aangebracht in je woorden lijst!")
     return woorden
 
+def verwijder_woord(woorden):
+    bekijk_lijst(woorden)
+    print_schermbreedte()
+    key = input("Woord (NL) die je wilt verwijderen:") #input van de key die verwijderdt wilt worden
+    vraag = input("Weet je zeker dat je dit woord wilt verwijderen?(ja/nee)")
+    if (vraag == 'ja'):
+        del woorden[key]
+    return woorden
+
 def overhoren_lijst(woorden):
     punten = 0
     while punten < len(woorden.keys())*2:
