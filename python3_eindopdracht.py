@@ -1,6 +1,6 @@
 #overhoor progamma
 import random
-
+import time
 def print_schermbreedte():
     print("="* 50)
 
@@ -22,7 +22,7 @@ def main():
         if (keuze == 'b'):
             bekijk_lijst(woorden)
         if (keuze == 'n'):
-            woorden = nieuwe_lijst()
+            woorden = nieuwe_lijst(woorden)
         if (keuze == 'w'):
             wijzig_lijst(woorden)
         if (keuze == 'o'):
@@ -43,17 +43,17 @@ def nieuwe_lijst(woorden):
     print("Laten we beginnen!")
     woorden = {}
 
-    key = input("ne")
+    key = input("ne:")
     while key != "s": #loopt zolang w gelijk is aan 50
         value = input("en:") #input engelse vertaling
         woorden[key] = value #slaat key en value op in dict
-    print("Je lijst is klaar")
+        key = input("ne:")
     f = open('woorden.txt', 'w')
-    for key, value in woorden:
+    for key in woorden: #loopt het x keer x = aantal keys
         f.write(key + ':' + value)
     f.close()
     print("Je bent klaar met je lijst!")
-    print("Als je nog meer woorden wilt toevoegen, kan dat in het menu")
+    print("Als je nog meer woorden wilt wijzigen, kan dat in het menu")
     return woorden
 
 def opslaan(woorden):
@@ -65,17 +65,15 @@ def opslaan(woorden):
     print("Woorden als .txt bestand opgelagen")
 
 def wijzig_lijst(woorden):
-    bekijk_lijst()
+    bekijk_lijst(woorden)
     print_schermbreedte()
-    key = input("Woord (key) dat je wilt veranderen:") #input van de key die veranderd wilt worden
+    key = input("Woord (NL) dat je wilt veranderen:") #input van de key die veranderd wilt worden
     newkey = input("Nieuw woord:") #nieuwe key woord
-    woorden[newkey] = woorden[key] #veranderd de oude key door de nieuwe key
-    print_schermbreedte()
-    print(woorden[newkey])  #print de value die veranderd wilt worden
     newvalue = input("Nieuwe vertaling:") #veranderd oude value voor de nieuwe value
     woorden[newkey] = newvalue
     del woorden[key]
     print("De nieuwe wijziging is aangebracht in je woorden lijst!")
+    return woorden
 
 def overhoren_lijst(woorden):
     punten = 0
@@ -88,11 +86,11 @@ def overhoren_lijst(woorden):
             print("GOED!!")
             punten += 1
         elif (enwoord == 's'): #kijkt of de input 's' is
-            main() #returnt als de input 's' is
+            break #RECURSIE
         else:
             print("Dat is niet correct!") #als er een andere input is die niet gecontroleerd wordt, wordt het fout gerekend
             print("Het goede antwoord:",woorden[nlwoord]) #print het goede antwoord
             punten -= 1
-    print("Je bent klaar voor je toets!!")
+    print("Je bent klaar!!", "Aantal punten:", punten)
 
 main()
