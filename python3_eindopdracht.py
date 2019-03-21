@@ -7,8 +7,10 @@ def print_schermbreedte():
 def print_header():
     print_schermbreedte()
     print("Welkom bij het overhoor progamma!")
-    print("bekijk lijst, toets b")
+    print("Maak altijd eerst een nieuwe lijst aan!")
+    print_schermbreedte()
     print("nieuwe lijst, toets n")
+    print("bekijk lijst, toets b")
     print("wijzig lijst, toets w")
     print("overhoor lijst, toets o")
     print("Om te stoppen, toets q")
